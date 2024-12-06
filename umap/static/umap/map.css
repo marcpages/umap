@@ -990,9 +990,9 @@ span.popup-icon {
 
 .umap-small-image-icon .icon_container, .umap-small-image-icon {
     background-color: transparent!important;
-    position: relative;
+    /* position: relative;
     top: 26px;
-    left: 6px;
+    left: 6px; */
 }
 
 
@@ -1017,10 +1017,13 @@ span.popup-icon {
     /* position: relative; */
 }
 
+.umap-image-icon .icon_container {
+    background-color: transparent !important;
+}
 .umap-image-icon {
     background-color: transparent !important;
-    position: relative;
-    top: 18px;
+    /* position: relative;
+    top: 18px; */
 }
 
 
