@@ -17,6 +17,10 @@ export function getClass(name) {
       return Drop
     case 'TextMarker':
       return TextMarker
+    case 'Image':
+      return Image
+    case 'SmallImage':
+      return SmallImage
     default:
       return DefaultIcon
   }
@@ -195,6 +199,25 @@ const Ball = DefaultIcon.extend({
     this.elements.container.style.opacity = this._getOpacity()
   },
 })
+
+const Image = DefaultIcon.extend({
+  default_options: {
+    iconAnchor: new L.Point(16, 42),
+    popupAnchor: new L.Point(0, -42),
+    tooltipAnchor: new L.Point(16, -24),
+    className: 'umap-image-icon',
+  },
+})
+
+const SmallImage = DefaultIcon.extend({
+  default_options: {
+    iconAnchor: new L.Point(16, 42),
+    popupAnchor: new L.Point(0, -42),
+    tooltipAnchor: new L.Point(16, -24),
+    className: 'umap-small-image-icon',
+  },
+})
+
 
 const TextMarker = BaseIcon.extend({
   initialize: function (options) {

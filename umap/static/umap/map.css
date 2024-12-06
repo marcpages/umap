@@ -971,7 +971,7 @@ span.popup-icon {
     top: -1px;
     width: 2px;
 }
-.umap-text-marker .icon_container {
+.umap-text-marker .icon_container, .umap-text-marker {
     background-color: transparent !important;
 }
 .umap-text-marker-svg {
