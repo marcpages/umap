@@ -979,18 +979,48 @@ span.popup-icon {
     top: 4px;
     left: 2px;
 }
-.umap-small-image-icon .icon_container {
-    background-color: transparent!important;
-    position: relative;
-    top: 26px;
-    left: 6px;
-}
+
 .umap-icon-active {
     z-index: var(--zindex-icon-active)!important;
     opacity: 1.0!important;
 }
 .umap-edit-enabled .readonly {
     cursor: not-allowed;
+}
+
+.umap-small-image-icon .icon_container, .umap-small-image-icon {
+    background-color: transparent!important;
+    position: relative;
+    top: 26px;
+    left: 6px;
+}
+
+
+.umap-image-icon img {
+    max-width: 30px !important;
+    width: 30px !important;
+    filter: none !important
+}
+.print-btn {
+    background-image: url(/static/umap/img/print.png) !important;
+        background-repeat: repeat !important;
+        background-size: cover !important;
+    }
+.umap-small-image-icon img {
+    max-width: 22px !important;
+    
+    width: 22px!important;
+    filter: none !important
+}
+.umap-image-icon {
+    /* top: 20px!important; */
+    /* position: relative; */
+}
+
+.umap-image-icon {
+    background-color: transparent !important;
+    position: relative;
+    top: 18px;
 }
 
 

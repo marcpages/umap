@@ -99,6 +99,36 @@ U.UpdatePermsAction = U.BaseAction.extend({
   },
 })
 
+U.PrintAction = U.BaseAction.extend({
+
+  options: {
+      className: 'print-btn dark',
+      html: 'prova',
+tooltip: L._('Imprimir')
+  },
+
+  addHooks: async function () {
+var css = '@page { size: landscape; }',
+  head = document.head || document.getElementsByTagName('head')[0],
+  style = document.createElement('style');
+
+style.type = 'text/css';
+style.media = 'print';
+
+if (style.styleSheet){
+style.styleSheet.cssText = css;
+} else {
+style.appendChild(document.createTextNode(css));
+}
+
+head.appendChild(style);
+window.print();
+}
+
+});
+
+
+
 U.DrawMarkerAction = U.BaseAction.extend({
   options: {
     helpMenu: true,
@@ -327,6 +357,7 @@ U.DrawToolbar = L.Toolbar.Control.extend({
         this.options.actions.push(U.AddPolygonShapeAction)
       }
     }
+    this.options.actions.push(U.PrintAction)
     L.Toolbar.Control.prototype.appendToContainer.call(this, container)
   },
 
