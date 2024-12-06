@@ -335,7 +335,9 @@
     // If `options` is given, it will be passed to the Marker class constructor.
     startMarker: function (latlng, options) {
       latlng = latlng || this.map.getCenter().clone()
-      console.log('options', options)
+      options = options || {
+        markerClass: 'TextMarker'
+      }
       const marker = this.createMarker(latlng, options)
       marker.enableEdit(this.map).startDrawing()
       return marker

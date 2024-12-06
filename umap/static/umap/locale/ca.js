@@ -158,7 +158,7 @@ const locale = {
     "expanded": "expanded",
     "Extract shape to separate feature": "Extract shape to separate feature",
     "Feature identifier key": "Clau identificadora de element",
-    "Feature properties": "Feature properties",
+    "Feature properties": "Propietats de la forma",
     "Fetch data each time map view changes.": "Fetch data each time map view changes.",
     "fill color": "emplena el color",
     "fill opacity": "opacitat d'emplenament",
