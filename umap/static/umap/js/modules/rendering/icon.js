@@ -15,6 +15,8 @@ export function getClass(name) {
       return Ball
     case 'Drop':
       return Drop
+    case 'TextMarker':
+      return TextMarker
     default:
       return DefaultIcon
   }
@@ -130,13 +132,13 @@ const Circle = BaseIcon.extend({
     options = L.Util.extend({}, default_options, options)
     BaseIcon.prototype.initialize.call(this, options)
   },
-
+  
   _setIconStyles: function (img, name) {
     BaseIcon.prototype._setIconStyles.call(this, img, name)
     this.elements.main.style.backgroundColor = this._getColor()
     this.elements.main.style.opacity = this._getOpacity()
   },
-
+  
   createIcon: function () {
     this.elements = {}
     this.elements.main = DomUtil.create('div')
@@ -191,6 +193,38 @@ const Ball = DefaultIcon.extend({
     }
     this.elements.container.style.background = background
     this.elements.container.style.opacity = this._getOpacity()
+  },
+})
+
+const TextMarker = BaseIcon.extend({
+  initialize: function (options) {
+    const default_options = {
+      iconAnchor: new L.Point(16, 42),
+      popupAnchor: new L.Point(0, -42),
+      tooltipAnchor: new L.Point(16, -24),
+      className: 'umap-drop-icon umap-text-marker',
+    }
+    options = L.Util.extend({}, default_options, options)
+    BaseIcon.prototype.initialize.call(this, options)
+  },
+  
+  _setIconStyles: function (img, name) {
+    BaseIcon.prototype._setIconStyles.call(this, img, name)
+    this.elements.main.style.backgroundColor = this._getColor()
+    this.elements.main.style.opacity = this._getOpacity()
+  },
+  
+  createIcon: function () {
+    this.elements = {}
+    this.elements.main = DomUtil.create('div')
+    this.elements.svg = DomUtil.create('div', 'icon_svg', this.elements.main)
+    this.elements.svg.className = 'umap-text-marker-svg'
+    var text = (this.feature.properties.name) ? this.feature.properties.name : '';
+    var fontSize = text.length > 2 ? '30' : '40';
+    this.elements.svg.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="28" height="38" x="0px" y="0px" viewBox="0 0 61 85" enable-background="new 0 0 61 85" xml:space="preserve"> <defs> <style> @import  url(https://fonts.googleapis.com/css?family=Roboto); text { font-family: \'Roboto\', sans-serif; text-rendering: optimizeLegibility; } </style> </defs> <path fill="#000" d="M31.75,0C48.318,0,61,12.488,61,29.057V30c0,21.834-19.322,49-29.75,55H31C20.572,79,0,51.834,0,30v-0.943  C0,12.488,13.932,0,30.5,0C30.667,0,31.583,0,31.75,0z"/> <path fill="' + this._getColor() + '" d="M31.688,2C47.428,2,59,13.989,59,29.729v0.896C59,51.367,41.119,77,31.212,83h-0.237  C21.069,77,2,51.367,2,30.625v-0.896C2,13.989,14.76,2,30.5,2C30.659,2,31.529,2,31.688,2z"/> <text x="50%" y="50%" dy=".13em" font-size="'+fontSize+'" font-weight="bold" text-anchor="middle" fill="#FFF">' + text + '</text> </svg>';
+    
+    this._setIconStyles(this.elements.main, 'icon')
+    return this.elements.main
   },
 })
 

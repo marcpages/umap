@@ -971,6 +971,20 @@ span.popup-icon {
     top: -1px;
     width: 2px;
 }
+.umap-text-marker .icon_container {
+    background-color: transparent !important;
+}
+.umap-text-marker-svg {
+    position: relative;
+    top: 4px;
+    left: 2px;
+}
+.umap-small-image-icon .icon_container {
+    background-color: transparent!important;
+    position: relative;
+    top: 26px;
+    left: 6px;
+}
 .umap-icon-active {
     z-index: var(--zindex-icon-active)!important;
     opacity: 1.0!important;
