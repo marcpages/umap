@@ -192,7 +192,7 @@ msgstr "%(current_user)s encara no ha destacat cap mapa."
 msgid ""
 "uMap lets you create maps with OpenStreetMap layers in a minute and embed "
 "them in your site."
-msgstr "uMap us permet crear mapes amb capes d'OpenStreetMap en un minut i incrustar-los en el vostre lloc web."
+msgstr "Obre l'enllaç per visualitzar el mapa."
 
 #: templates/registration/login.html:6 templates/registration/login.html:45
 msgid "Login"
@@ -219,7 +219,7 @@ msgstr "Trieu un proveïdor"
 msgid ""
 "uMap lets you create maps with <a href=\"%(osm_url)s\" />OpenStreetMap</a> "
 "layers in a minute and embed them in your site."
-msgstr "El uMap us permet crear mapes amb capes de l'<a href=\"%(osm_url)s\" />OpenStreetMap</a> en un minut i inserir-los en el vostre lloc web."
+msgstr "Obre l'enllaç per visualitzar el mapa."
 
 #: templates/umap/about_summary.html:23
 msgid "Choose the layers of your map"
