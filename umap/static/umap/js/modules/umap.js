@@ -202,6 +202,12 @@ export default class Umap extends ServerStored {
       this.propagate()
     }
 
+    var pegmanControl = new L.Control.Pegman({
+      position: 'bottomright', // position of control inside the map
+      theme: "leaflet-pegman-v3-small", // or "leaflet-pegman-v3-default"
+    });
+    pegmanControl.addTo(this._leafletMap);
+
     window.onbeforeunload = () => (this.editEnabled && SAVEMANAGER.isDirty) || null
     this.backup()
   }
