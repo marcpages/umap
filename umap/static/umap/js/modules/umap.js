@@ -1182,6 +1182,7 @@ export default class Umap extends ServerStored {
         properties[key] = this.properties[key]
       }
     }
+    properties.zoom = this._leafletMap.getZoom()
     return properties
   }
 
