@@ -384,6 +384,12 @@ class Map(NamedModel):
         if "owner" in kwargs:
             # can be None in case of anonymous cloning
             new.owner = kwargs["owner"]
+        if "name" in kwargs:
+            # can be None in case of anonymous cloning
+            new.name = kwargs["name"]
+        if "slug" in kwargs:
+            # can be None in case of anonymous cloning
+            new.slug = kwargs["slug"]
         new.save()
         for editor in self.editors.all():
             new.editors.add(editor)
