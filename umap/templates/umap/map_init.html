@@ -6,6 +6,23 @@
 <!-- djlint:off -->
 <script defer type="module">
     import Umap from '{% static "umap/js/modules/umap.js" %}'
-    U.MAP = new Umap("map", {{ map_settings|notag|safe }})
+    U.MAP = new Umap("map", {{ map_settings|notag|safe }});
+    window.addEventListener('message', (event) => {
+            // Verify the origin of the message
+            if (event.data.action === 'set-map-transparent') {
+
+                var mapContainer = document.getElementById('map');
+
+                if (mapContainer) {
+                    mapContainer.style.background = 'transparent';
+                }
+                
+                U.MAP._leafletMap.eachLayer(function (layer) { if (layer instanceof L.TileLayer) { U.MAP._leafletMap.removeLayer(layer); } });
+
+            } else {
+                U.MAP._leafletMap.setCenter(event.data.center);
+                U.MAP._leafletMap.setZoom(event.data.zoom);
+            }
+        });
 </script>
 <!-- djlint:on -->

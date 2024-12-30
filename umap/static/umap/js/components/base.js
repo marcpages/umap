@@ -21,7 +21,7 @@ export class uMapElement extends HTMLElement {
       .getElementById(this.getAttribute('template') || `${this.localName}-template`)
       .content.cloneNode(true)
   }
-
+  
   constructor() {
     super()
     this.append(this.template)
