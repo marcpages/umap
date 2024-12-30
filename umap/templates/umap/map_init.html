@@ -20,8 +20,7 @@
                 U.MAP._leafletMap.eachLayer(function (layer) { if (layer instanceof L.TileLayer) { U.MAP._leafletMap.removeLayer(layer); } });
 
             } else {
-                U.MAP._leafletMap.setCenter(event.data.center);
-                U.MAP._leafletMap.setZoom(event.data.zoom);
+                U.MAP._leafletMap.setView(event.data.center, event.data.zoom);
             }
         });
 </script>
